@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-04-23T12:49:08.781944",
+  "project_root": "/workspace",
+  "checks": {
+    "Directory Structure": {
+      "name": "Directory Structure",
+      "status": "WARNING",
+      "details": [
+        "\u2713 Directory 'tests' exists",
+        "\u2713 Directory 'scripts' exists",
+        "Missing directories: src, include, docs"
+      ],
+      "warnings": [
+        "\u26a0 Directory 'src' not found",
+        "\u26a0 Directory 'include' not found",
+        "\u26a0 Directory 'docs' not found"
+      ]
+    },
+    "Source Files Analysis": {
+      "name": "Source Files Analysis",
+      "status": "WARNING",
+      "details": [
+        "\u26a0 No source files detected - this may be a new project"
+      ],
+      "warnings": [
+        "No .c source files found in src/"
+      ],
+      "metrics": {
+        "c_files_count": 0,
+        "h_files_count": 0,
+        "total_lines": 0
+      }
+    },
+    "FreeRTOS Integration": {
+      "name": "FreeRTOS Integration Check",
+      "status": "INFO",
+      "details": [
+        "\u2139 FreeRTOS.h header not found",
+        "\u2139 Task definitions not found",
+        "\u2139 Scheduler start not found",
+        "\u2139 Task delays not found",
+        "\u2139 Queues or Semaphores not found",
+        "\u2139 This is acceptable for projects not using FreeRTOS"
+      ],
+      "requirements": {
+        "found": [],
+        "missing": [
+          "FreeRTOS.h header",
+          "Task definitions",
+          "Scheduler start",
+          "Task delays",
+          "Queues or Semaphores"
+        ],
+        "completion_percentage": 0.0
+      }
+    },
+    "CI/CD Configuration": {
+      "name": "CI/CD Configuration",
+      "status": "PASS",
+      "details": [
+        "\u2713 Found CI/CD config: .github/workflows/cicd_pipeline.yml"
+      ],
+      "warnings": [
+        "\u26a0 No standard build system file found"
+      ],
+      "files_found": [
+        ".github/workflows/cicd_pipeline.yml"
+      ]
+    },
+    "Test Coverage": {
+      "name": "Test Coverage Analysis",
+      "status": "PASS",
+      "details": [
+        "\u2713 Found 0 test files"
+      ],
+      "warnings": [
+        "\u2139 No standard test framework detected"
+      ],
+      "metrics": {
+        "test_files": 0
+      }
+    },
+    "Documentation": {
+      "name": "Documentation Check",
+      "status": "PASS",
+      "details": [
+        "\u2713 README.md present",
+        "\u2139 LICENSE not found",
+        "\u2139 CONTRIBUTING.md not found",
+        "\u2139 CHANGELOG.md not found"
+      ],
+      "files_found": [
+        "README.md"
+      ],
+      "completeness": 20.0
+    }
+  },
+  "summary": {
+    "total_checks": 6,
+    "passed": 3,
+    "failed": 1,
+    "warnings": 2
+  }
+}

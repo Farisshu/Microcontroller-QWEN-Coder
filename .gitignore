@@ -1,16 +1,39 @@
 ```
-# Report files
-reports/
+# Compiled and build artifacts
+*.o
+*.obj
+*.out
+*.a
+*.so
+*.dll
+*.exe
+
+# Dependencies
+build/
+dist/
+*.pyc
+__pycache__/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Editors
+.vscode/
+.idea/
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Logs
-*.log
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
-# Temporary files
-*.tmp
-*.swp
+# OS specific
+.DS_Store
+Thumbs.db
 ```
