@@ -1,0 +1,333 @@
+{
+  "report_metadata": {
+    "project_name": "Microcontroller-QWEN-Coder",
+    "report_type": "CI/CD Pipeline Analysis",
+    "generated_at": "2024-01-15T10:30:45.123456",
+    "generator_version": "1.0.0",
+    "repository_url": "https://github.com/user/Microcontroller-QWEN-Coder",
+    "branch": "main",
+    "commit_hash": "a1b2c3d4e5f6g7h8i9j0"
+  },
+  "pipeline_execution": {
+    "pipeline_id": "run_12345678",
+    "triggered_by": "push",
+    "duration_seconds": 245,
+    "status": "completed",
+    "stages": [
+      {
+        "name": "build",
+        "status": "passed",
+        "duration_seconds": 45,
+        "started_at": "2024-01-15T10:25:00.000000",
+        "finished_at": "2024-01-15T10:25:45.000000"
+      },
+      {
+        "name": "test",
+        "status": "passed",
+        "duration_seconds": 120,
+        "started_at": "2024-01-15T10:25:46.000000",
+        "finished_at": "2024-01-15T10:27:46.000000"
+      },
+      {
+        "name": "static_analysis",
+        "status": "passed",
+        "duration_seconds": 60,
+        "started_at": "2024-01-15T10:27:47.000000",
+        "finished_at": "2024-01-15T10:28:47.000000"
+      },
+      {
+        "name": "deploy",
+        "status": "passed",
+        "duration_seconds": 20,
+        "started_at": "2024-01-15T10:28:48.000000",
+        "finished_at": "2024-01-15T10:29:08.000000"
+      }
+    ]
+  },
+  "code_quality_metrics": {
+    "total_lines_of_code": 5420,
+    "source_files_count": 15,
+    "header_files_count": 12,
+    "test_files_count": 18,
+    "documentation_files_count": 5,
+    "complexity_metrics": {
+      "average_function_length": 25,
+      "max_function_length": 85,
+      "cyclomatic_complexity_average": 4.2,
+      "maintainability_index": 78.5
+    },
+    "code_coverage": {
+      "line_coverage_percent": 87.3,
+      "branch_coverage_percent": 79.5,
+      "function_coverage_percent": 92.1,
+      "uncovered_files": [
+        "src/hardware_abstraction.c",
+        "src/interrupt_handlers.c"
+      ]
+    }
+  },
+  "misra_compliance": {
+    "standard": "MISRA C:2012",
+    "overall_status": "compliant_with_warnings",
+    "compliance_percentage": 94.7,
+    "rules_checked": 142,
+    "rules_passed": 134,
+    "rules_violated": 3,
+    "rules_not_applicable": 5,
+    "violations": [
+      {
+        "rule_id": "5.1",
+        "severity": "warning",
+        "description": "External identifiers shall be unique",
+        "file": "src/task_manager.c",
+        "line": 45,
+        "recommendation": "Rename identifier to ensure uniqueness across translation units"
+      },
+      {
+        "rule_id": "8.7",
+        "severity": "warning",
+        "description": "Functions and objects should not be defined with external linkage if they are referenced in only one translation unit",
+        "file": "src/utils.c",
+        "line": 23,
+        "recommendation": "Add static keyword to limit linkage"
+      },
+      {
+        "rule_id": "21.1",
+        "severity": "advisory",
+        "description": "<stdio.h>, <time.h>, <math.h> shall not be used",
+        "file": "src/debug_output.c",
+        "line": 12,
+        "recommendation": "Use custom printf implementation for embedded systems"
+      }
+    ],
+    "mandatory_rules_status": "all_passed",
+    "required_rules_status": "2_warnings",
+    "advisory_rules_status": "1_advisory"
+  },
+  "freertos_analysis": {
+    "integration_status": "detected",
+    "version": "10.4.6",
+    "components_used": [
+      "Tasks",
+      "Queues",
+      "Semaphores",
+      "Timers",
+      "Memory Management"
+    ],
+    "task_summary": {
+      "total_tasks": 8,
+      "tasks_by_priority": {
+        "high": 2,
+        "medium": 4,
+        "low": 2
+      },
+      "stack_usage": {
+        "minimum_free_stack": 512,
+        "average_stack_utilization_percent": 67.3,
+        "potential_stack_overflows": []
+      }
+    },
+    "ipc_mechanisms": {
+      "queues_count": 5,
+      "semaphores_count": 7,
+      "mutexes_count": 4,
+      "event_groups_count": 2
+    },
+    "memory_management": {
+      "heap_scheme": "heap_4",
+      "total_heap_size_bytes": 32768,
+      "current_usage_bytes": 18432,
+      "fragmentation_percent": 3.2
+    },
+    "best_practices": {
+      "blocking_calls_in_isr": false,
+      "proper_priority_assignment": true,
+      "deadlock_risk_detected": false,
+      "priority_inversion_risk": "low"
+    }
+  },
+  "test_results": {
+    "framework": "Unity + CMock",
+    "total_tests": 156,
+    "tests_passed": 152,
+    "tests_failed": 2,
+    "tests_skipped": 2,
+    "success_rate_percent": 97.4,
+    "execution_time_seconds": 12.45,
+    "failed_tests": [
+      {
+        "test_name": "test_queue_overflow_handling",
+        "file": "tests/test_queue_manager.c",
+        "line": 234,
+        "failure_message": "Expected 1 but was 0",
+        "severity": "error"
+      },
+      {
+        "test_name": "test_task_priority_change",
+        "file": "tests/test_scheduler.c",
+        "line": 567,
+        "failure_message": "Task state mismatch after priority change",
+        "severity": "error"
+      }
+    ],
+    "skipped_tests": [
+      {
+        "test_name": "test_hardware_interrupt_simulation",
+        "file": "tests/test_interrupts.c",
+        "reason": "Requires hardware emulation not available in CI"
+      },
+      {
+        "test_name": "test_power_management_deep_sleep",
+        "file": "tests/test_power_mgmt.c",
+        "reason": "Test requires physical hardware"
+      }
+    ],
+    "coverage_by_module": [
+      {
+        "module": "task_manager",
+        "line_coverage": 95.2,
+        "branch_coverage": 88.7
+      },
+      {
+        "module": "queue_handler",
+        "line_coverage": 91.3,
+        "branch_coverage": 85.4
+      },
+      {
+        "module": "interrupt_handlers",
+        "line_coverage": 45.6,
+        "branch_coverage": 32.1
+      }
+    ]
+  },
+  "build_artifacts": {
+    "compiler": "arm-none-eabi-gcc",
+    "compiler_version": "12.2.1",
+    "optimization_level": "-O2",
+    "target_architecture": "ARM Cortex-M4F",
+    "binary_size": {
+      "text_section_bytes": 24576,
+      "data_section_bytes": 1024,
+      "bss_section_bytes": 4096,
+      "total_size_bytes": 29696,
+      "size_limit_bytes": 65536,
+      "utilization_percent": 45.3
+    },
+    "output_files": [
+      {
+        "name": "firmware.elf",
+        "path": "build/firmware.elf",
+        "size_bytes": 32768,
+        "checksum_sha256": "a1b2c3d4e5f6..."
+      },
+      {
+        "name": "firmware.bin",
+        "path": "build/firmware.bin",
+        "size_bytes": 24576,
+        "checksum_sha256": "f6e5d4c3b2a1..."
+      },
+      {
+        "name": "firmware.hex",
+        "path": "build/firmware.hex",
+        "size_bytes": 45056,
+        "checksum_sha256": "1a2b3c4d5e6f..."
+      }
+    ],
+    "warnings_count": 3,
+    "errors_count": 0
+  },
+  "static_analysis": {
+    "tools_used": ["cppcheck", "clang-tidy", "pc-lint"],
+    "issues_found": {
+      "critical": 0,
+      "major": 2,
+      "minor": 8,
+      "style": 15
+    },
+    "top_issues": [
+      {
+        "tool": "cppcheck",
+        "severity": "major",
+        "type": "nullPointer",
+        "message": "Possible null pointer dereference",
+        "file": "src/message_handler.c",
+        "line": 89
+      },
+      {
+        "tool": "clang-tidy",
+        "severity": "major",
+        "type": "performance-unnecessary-copy-initialization",
+        "message": "Unnecessary copy initialization detected",
+        "file": "src/data_processor.c",
+        "line": 156
+      }
+    ]
+  },
+  "security_scan": {
+    "vulnerabilities_found": 0,
+    "dependencies_scanned": 12,
+    "outdated_dependencies": 2,
+    "license_compliance": "passed",
+    "secrets_detected": false,
+    "buffer_overflow_checks": "passed",
+    "input_validation_checks": "passed"
+  },
+  "deployment_info": {
+    "environment": "staging",
+    "deployment_status": "successful",
+    "deployed_at": "2024-01-15T10:29:08.000000",
+    "target_device": "STM32F4 Discovery Board",
+    "flash_utilization_percent": 45.3,
+    "ram_utilization_percent": 56.2
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "category": "testing",
+      "recommendation": "Increase test coverage for interrupt_handlers module (currently 45.6%)",
+      "estimated_effort": "4 hours"
+    },
+    {
+      "priority": "medium",
+      "category": "misra",
+      "recommendation": "Address MISRA rule 5.1 violation in task_manager.c",
+      "estimated_effort": "1 hour"
+    },
+    {
+      "priority": "medium",
+      "category": "code_quality",
+      "recommendation": "Fix null pointer dereference warning in message_handler.c",
+      "estimated_effort": "2 hours"
+    },
+    {
+      "priority": "low",
+      "category": "optimization",
+      "recommendation": "Reduce stack size for low-priority tasks to optimize memory usage",
+      "estimated_effort": "3 hours"
+    },
+    {
+      "priority": "low",
+      "category": "documentation",
+      "recommendation": "Add API documentation for newly added queue management functions",
+      "estimated_effort": "2 hours"
+    }
+  ],
+  "trend_analysis": {
+    "comparison_period": "last_7_days",
+    "metrics_trend": {
+      "code_coverage": {"previous": 85.1, "current": 87.3, "change": "+2.2"},
+      "test_pass_rate": {"previous": 96.8, "current": 97.4, "change": "+0.6"},
+      "misra_compliance": {"previous": 93.2, "current": 94.7, "change": "+1.5"},
+      "build_time_seconds": {"previous": 268, "current": 245, "change": "-23"}
+    }
+  },
+  "summary": {
+    "overall_status": "passed_with_warnings",
+    "grade": "A-",
+    "ready_for_production": false,
+    "blocking_issues": 0,
+    "warnings_count": 5,
+    "action_items": 5,
+    "next_review_date": "2024-01-22"
+  }
+}

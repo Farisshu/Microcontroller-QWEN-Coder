@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-04-23T13:34:50.259235",
+  "datasets": [
+    {
+      "name": "ESP32_RS485_Modbus",
+      "file": "data/demo_samples/esp32_rs485_demo.csv",
+      "records": 150,
+      "description": "Simulated Modbus RTU sensor data over RS485"
+    },
+    {
+      "name": "MCP2515_CAN_Bus",
+      "file": "data/demo_samples/mcp2515_can_demo.csv",
+      "records": 150,
+      "description": "Simulated CAN bus messages from vehicle/industrial system"
+    }
+  ],
+  "usage_instructions": [
+    "Use these files with: python tools/data_analyzer.py --input data/demo_samples/esp32_rs485_demo.csv",
+    "Or for CAN data: python tools/data_analyzer.py --input data/demo_samples/mcp2515_can_demo.csv",
+    "Files simulate real serial monitor output from PlatformIO projects"
+  ]
+}
