@@ -46,6 +46,32 @@ All code in this repository follows strict quality guidelines:
 - **Static Analysis**: PC-lint, Cppcheck, or equivalent tools
 - **Build Systems**: CMake, Make, or vendor-specific IDEs
 - **Testing Frameworks**: Unity, CppUTest, Google Test
+- **Data Analysis**: Python-based serial data analyzer with Chart.js visualization
+- **Hardware Platforms**: ESP32, RS485/Modbus, MCP2515 CAN bus
+
+## 📊 Serial Data Analyzer
+
+This repository includes a powerful **Serial Data Analyzer** toolkit for processing and visualizing data from embedded systems:
+
+- 📈 **Auto-Detection**: Identifies RS485/Modbus or CAN bus data formats
+- 📊 **Interactive Reports**: HTML dashboards with Chart.js graphs
+- 📋 **Statistics**: Min, max, average, standard deviation, error rates
+- 🔍 **Error Analysis**: Anomaly detection and communication error logging
+- 🚀 **CI/CD Ready**: JSON export for pipeline integration
+
+**Quick Start:**
+```bash
+# Generate demo data
+make generate-data
+
+# Analyze and create report
+make demo-full
+
+# View interactive report
+open reports/data_analysis_report.html
+```
+
+For detailed usage, see [Data Analyzer Guide](docs/DATA_ANALYZER_GUIDE.md).
 
 ## 📁 Repository Structure
 
@@ -61,7 +87,21 @@ Microcontroller-QWEN-Coder/
 ├── test/                     # Unit and integration tests
 ├── .github/                  # CI/CD workflows
 ├── docs/                     # Documentation
-└── scripts/                  # Build and utility scripts
+│   ├── README.md             # API reference
+│   ├── MISRA_Deviations.md   # MISRA compliance tracking
+│   ├── INTERNSHIP_GUIDE.md   # Internship preparation guide
+│   └── DATA_ANALYZER_GUIDE.md # Serial data analyzer usage
+├── scripts/                  # Build and utility scripts
+│   ├── cicd_checker.py       # CI/CD validation script
+│   └── generate_report.py    # Report generation tool
+├── tools/                    # Data analysis tools
+│   ├── generate_demo_data.py # Demo data generator
+│   └── data_analyzer.py      # Serial data analyzer
+├── data/                     # Sample data files
+│   └── demo_samples/         # Demo datasets
+└── reports/                  # Generated reports
+    ├── data_analysis.json    # Analysis statistics
+    └── data_analysis_report.html # Interactive dashboard
 ```
 
 ## 🚀 Getting Started
@@ -71,6 +111,18 @@ Microcontroller-QWEN-Coder/
 - FreeRTOS source files
 - Target microcontroller SDK
 - CI/CD platform access (optional for local development)
+- Python 3.8+ (for data analysis tools)
+- PlatformIO/VSCode (optional, for serial data collection)
+
+### Installing Dependencies
+```bash
+# Install Python dependencies for data analysis
+pip install pandas matplotlib numpy jinja2
+
+# Verify installation
+python --version
+pip list | grep -E "pandas|matplotlib|numpy|jinja2"
+```
 
 ### Building the Project
 ```bash
@@ -93,6 +145,24 @@ ctest --verbose
 
 # Run static analysis
 cppcheck --enable=all src/
+
+# Run CI/CD checks
+make check
+```
+
+### Generating Data Analysis Reports
+```bash
+# Generate demo serial data
+make generate-data
+
+# Analyze data and create reports
+make demo-full
+
+# View interactive HTML report
+open reports/data_analysis_report.html
+
+# Analyze your own serial data
+make analyze-custom FILE=/path/to/your/serial_output.csv
 ```
 
 ## 🤝 Contributing
@@ -118,6 +188,26 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Contact
 
 For questions or collaboration opportunities, please open an issue or contact the repository maintainer.
+
+## 📚 Additional Documentation
+
+| Document | Description |
+|----------|-------------|
+| [API Reference](docs/README.md) | Complete API documentation for all modules |
+| [MISRA Compliance](docs/MISRA_Deviations.md) | MISRA C:2012 compliance tracking and deviations |
+| [Internship Guide](docs/INTERNSHIP_GUIDE.md) | Preparation guide for internship interviews |
+| [Data Analyzer Guide](docs/DATA_ANALYZER_GUIDE.md) | Serial data analysis toolkit usage |
+
+## 🎓 Internship Preparation Checklist
+
+Use this repository to demonstrate:
+
+- ✅ **FreeRTOS Proficiency**: Task management, synchronization, IPC
+- ✅ **MISRA Compliance**: Safety-critical coding standards
+- ✅ **CI/CD Experience**: Automated testing and deployment pipelines
+- ✅ **Data Analysis**: Serial data processing and visualization
+- ✅ **Professional Documentation**: Clear, comprehensive technical writing
+- ✅ **Problem Solving**: Debugging and optimization skills
 
 ---
 
