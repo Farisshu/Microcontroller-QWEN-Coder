@@ -97,10 +97,19 @@ help:
 	@echo "  clean            - Remove generated files"
 	@echo "  help             - Show this help message"
 	@echo ""
+	@echo "Data Analysis Targets (NEW):"
+	@echo "  generate-data    - Generate demo sensor data (RS485 & CAN)"
+	@echo "  analyze-data     - Analyze RS485 demo data with charts"
+	@echo "  analyze-can      - Analyze CAN bus demo data"
+	@echo "  demo-full        - Complete workflow: generate + analyze"
+	@echo "  analyze-custom   - Analyze your own serial data (FILE=param)"
+	@echo ""
 	@echo "Examples:"
 	@echo "  make check       - Run CI/CD checks only"
 	@echo "  make report      - Generate reports only"
 	@echo "  make all         - Run both checks and reports"
+	@echo "  make demo-full   - Full data analysis demo"
+	@echo "  make analyze-custom FILE=data/my_serial_log.csv"
 	@echo "  make clean       - Clean all generated files"
 	@echo ""
 	@echo "For more information, see README.md"
@@ -120,3 +129,34 @@ demo:
 	@echo "========================================"
 	@echo "Demo Complete!"
 	@echo "========================================"
+
+# Generate demo data for serial monitor analysis
+generate-data:
+	@echo "🔧 Generating demo sensor data..."
+	@python tools/generate_demo_data.py
+
+# Run data analyzer on RS485 demo samples
+analyze-data:
+	@echo "📊 Analyzing RS485 demo data..."
+	@python tools/data_analyzer.py -i data/demo_samples/esp32_rs485_demo.csv -f all
+
+# Run data analyzer on CAN bus demo samples
+analyze-can:
+	@echo "🚗 Analyzing CAN bus demo data..."
+	@python tools/data_analyzer.py -i data/demo_samples/mcp2515_can_demo.csv -f all --no-graph
+
+# Full demo workflow with data generation and analysis
+demo-full: generate-data analyze-data
+	@echo ""
+	@echo "✅ Complete demo workflow finished!"
+	@echo "📁 Check reports/ directory for HTML and JSON reports"
+	@echo "🌐 Open reports/data_analysis_report.html in your browser"
+
+# Analyze custom serial data (usage: make analyze-custom FILE=path/to/your/data.csv)
+analyze-custom:
+	@if [ -z "$(FILE)" ]; then \
+		echo "❌ Error: FILE parameter required. Usage: make analyze-custom FILE=path/to/data.csv"; \
+		exit 1; \
+	fi
+	@echo "📊 Analyzing custom data: $(FILE)"
+	@python tools/data_analyzer.py -i $(FILE) -f all
