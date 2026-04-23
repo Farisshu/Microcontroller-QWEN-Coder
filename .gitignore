@@ -1,32 +1,51 @@
-# Environment and config files
-.env
-.env.local
-*.env.*
-
-# Logs and temporary files
+```gitignore
+# Logs and temp files
 *.log
 *.tmp
 *.swp
+
+# Environment
+.env
+.env.local
+.env.*
 
 # Coverage reports
 coverage/
 htmlcov/
 .coverage
 
-# CI/CD related
-reports/
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+dist/
+build/
+target/
+.gradle/
 
-# Editor/IDE files
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # System files
 .DS_Store
 Thumbs.db
 
-# Compressed files
+# Compiled files
+*.pyc
+*.class
+*.o
+*.exe
+*.dll
+*.so
+*.a
+*.obj
+*.out
+
+# Archives
 *.zip
 *.gz
 *.tar
@@ -49,207 +68,4 @@ Thumbs.db
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-
-# Python specific
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-*.egg-info/
-.eggs/
-.mypy_cache/
-.pytest_cache/
-.tox/
-.coverage*
-nosetests.xml
-coverage.xml
-*.cover
-*.log
-.git/
-
-# Node.js specific
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# Virtual environments
-venv/
-ENV/
-env/
-.venv/
-.env/
-
-# Build outputs
-dist/
-build/
-target/
-out/
-output/
-coverage/
-*.min.js
-*.min.css
-
-# Java specific
-*.class
-*.jar
-*.war
-*.ear
-*.tar.gz
-.gradle/
-build/
-
-# C/C++ specific
-*.o
-*.a
-*.so
-*.dll
-*.exe
-*.out
-*.obj
-
-# Go specific
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.prof
-go.mod
-go.sum
-
-# Rust specific
-target/
-Cargo.lock
-
-# Ruby specific
-*.gem
-*.rbc
-.bundle/
-vendor/bundle/
-.ruby-version
-.rbenv-vars
-.travis.yml
-.rubocop.yml
-.rubocop_todo.yml
-
-# PHP specific
-vendor/
-composer.lock
-.php_cs.cache
-
-# .NET specific
-bin/
-obj/
-out/
-*.sln
-*.csproj.user
-*.userosscache
-*.suo
-*.user
-*.aps
-*.vicb
-*.pdb
-*.ilk
-*.meta
-*.cache
-*.idb
-*.pdbx
-*.opendb
-*.opensdf
-*.sdf
-*.pidb
-*.log
-*.nupkg
-*.dbmdl
-*.dbproj.schemaview.xml
-*.userprefs
-*.svclog
-*.scc
-*.vbsproj.user
-*.vdsproj.user
-*.vdpjproj.user
-*.loadtest
-*.testsettings
-*.settings
-*.testrunconfig
-*.vsmdi
-*.vsixmanifest
-*.vsct
-*.vssettings
-*.vstemplate
-*.vstxt
-*.vsix
-*.pkgdef
-*.pkgundef
-*.rsp
-*.publishsettings
-*.userosscache
-*.cache
-*.vcxproj.user
-*.vcxproj.filters
-*.vcproj.user
-*.vcproj.filters
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.CppClean.log
-*.vcxproj.Clean.log
-*.vcxproj.CppClean.log
-*.vcxproj.CoreCppClean.log
-*.vcxproj.FileListAbsolute.txt
-*.vcxproj.Build.CppClean.log
-*.vcx......
+```

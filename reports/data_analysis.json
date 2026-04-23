@@ -1,0 +1,59 @@
+{
+  "total_records": 150,
+  "format_type": "RS485_MODBUS",
+  "analysis_timestamp": "2026-04-23T13:34:50.376635",
+  "time_range": {
+    "start": "2026-04-23T13:34:50.255767",
+    "end": "2026-04-23T13:39:48.255767"
+  },
+  "error_summary": {
+    "error_code_1": 1,
+    "error_code_5": 3,
+    "error_code_3": 2,
+    "error_code_2": 1,
+    "total_errors": 7,
+    "error_rate": 4.67
+  },
+  "value_statistics": {
+    "current": {
+      "count": 33,
+      "min": 0.22,
+      "max": 24.0,
+      "avg": 7.59
+    },
+    "voltage": {
+      "count": 29,
+      "min": 11.04,
+      "max": 16.8,
+      "avg": 12.69
+    },
+    "humidity": {
+      "count": 35,
+      "min": 2.99,
+      "max": 120.0,
+      "avg": 50.49
+    },
+    "pressure": {
+      "count": 34,
+      "min": 901.19,
+      "max": 1320.0,
+      "avg": 998.28
+    },
+    "temperature": {
+      "count": 19,
+      "min": -14.27,
+      "max": 102.0,
+      "avg": 34.24
+    }
+  },
+  "device_summary": {
+    "SLAVE_04": 43,
+    "SLAVE_03": 37,
+    "SLAVE_02": 34,
+    "SLAVE_01": 36
+  },
+  "status_distribution": {
+    "OK": 143,
+    "ERROR": 7
+  }
+}
